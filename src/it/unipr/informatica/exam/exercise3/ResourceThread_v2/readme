@@ -1,0 +1,8 @@
+In questa versione ho eliminato la classe Worker, ho sotituito InnerResource all'interno
+di ResourceManager con ResourceImpl, la quale extends Thread.
+
+Penso che sarebbe meglio che 2 classi come ResourceImpl e ResourceManager, siano all'interno
+della stessa classe con ResourceImpl come inner-class,
+poiche sono molto collegate fra di loro e hanno necessità di communicare tra di loro
+condividendo dati sensibili, come gli attributi(variabili private) e/o oggetti di 
+sincronizzazione (mutex).

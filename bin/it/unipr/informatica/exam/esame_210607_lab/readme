@@ -1,0 +1,41 @@
+Si consideri un sistema che contenga la seguente interfaccia nel package it.unipr.informatica.exam.agent
+
+public interface Agent {
+    public double getValue();
+    public double update(double value);
+}
+
+L'interfaccia Agent viene implementata dalla classe AgentImpl, nello stesso package, 
+che estende java.util.Thread e permette di istanziare oggetti attivi chiamati agenti.
+
+Ogni agente è dotato di una proprietà value inizializzata in modo casuale in [0,1] e 
+leggibile mediante il metodo getValue().
+
+Una chiamata a update(v) ha l'effetto di sostituire il valore value dell'agente con 
+(value+v)/2, che viene restituito come risultato della chiamata update(v).
+
+Ogni agente esegue nel suo thread un ciclo che contiene almeno le seguenti operazioni
+(non necessariamente solo queste, ma anche altre se ritenuto utile):
+Aspetta 100+r millisecondi, con r numero casuale in [0..50].
+Chiama update(value) su un altro agente scelto casualmente e sostituisce value con il 
+valore di ritorno di update(value).
+Gli agenti vengono sempre utilizzati mediante un agent manager che implementa la 
+seguente interfaccia nel package it.unipr.informatica.exam.agent:
+
+public interface AgentManager {
+    public double startAgentsAndWait(int n, int k);
+}
+
+La chiamata startAgentsAndWait(N,K) ha il compito di attivare 0 < N < 10 agenti 
+(e i relativi thread) e di aspettare che il gruppo di N agenti faccia complessivamente 
+0 < K < 2000 chiamate al metodo update(double).
+
+Una volta fatte K chiamate al metodo update(double), gli agenti terminano e la chiamata 
+startAgentsAndWait(N, K) ritorna la media dei valori delle proprietà value degli agenti.
+
+Si noti che il metodo startAgentsAndWait(int, int) rimane in attesa se lo agent manager 
+è già in attesa che un gruppo di agenti termini.
+
+In più, si noti che il metodo startAgentsAndWait(int, int) ritorna immediatamente -1
+se almeno uno dei thread degli agenti viene interrotto prima che vengano effettuate 
+tutte le chiamate a update(double).

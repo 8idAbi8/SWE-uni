@@ -1,0 +1,2 @@
+in questa seconda versione , abbiamo la classe esterna AgentImpl, 
+che nella v1 è una inner-class all'interno di AgentManagerImpl.

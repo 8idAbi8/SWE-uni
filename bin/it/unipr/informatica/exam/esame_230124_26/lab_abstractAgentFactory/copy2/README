@@ -1,0 +1,2 @@
+ versione con  Lock lock = new ReentrantLock(); 
+ e List<Agent> agents = new ArrayList<>();

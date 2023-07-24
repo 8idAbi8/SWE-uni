@@ -1,0 +1,12 @@
+richiesta complicata è ancora senza soluzione.. (guardare esempio MonitorSet)
+
+In questo sistema, il workerManager crea un array di oggetti Worker e un oggetto ConditionSetImpl, 
+uno per ogni worker. 
+Ogni Worker ha un id univoco e un riferimento al conditionSet. 
+Il worker esegue un ciclo infinito in cui aspetta un periodo di tempo 
+casuale e poi notifica se stesso tramite il conditionSet.
+Il workerManager esegue un ciclo infinito in cui si mette in attesa sul 
+conditionSet e quando viene notificato, stampa l'id del worker che ha notificato.
+Per garantire la sincronizzazione tra i thread, il conditionSet è 
+implementato usando la sincronizzazione dei metodi e la notifica viene 
+eseguita all'interno di un blocco sincronizzato sul conditionSet.

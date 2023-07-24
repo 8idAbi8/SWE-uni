@@ -1,0 +1,4 @@
+/*
+ * private class InnerAgent extends Thread implements Agent {...} 
+ * all'interno di AgentManagerImpl. 
+ */

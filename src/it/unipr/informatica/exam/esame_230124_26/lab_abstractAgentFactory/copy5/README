@@ -1,0 +1,2 @@
+versione con Object[] agents; 
+ e sostituisco Object lock con syncronized(agents)

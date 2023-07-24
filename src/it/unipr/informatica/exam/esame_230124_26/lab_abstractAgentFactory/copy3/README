@@ -1,0 +1,2 @@
+ versione con array AgentImpl[] agents 
+ e Lock lock = new ReentrantLock();

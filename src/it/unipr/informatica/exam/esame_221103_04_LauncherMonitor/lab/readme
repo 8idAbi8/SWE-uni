@@ -1,0 +1,5 @@
+esercizio risolto in classe;
+
+Un "monitor" è una struttura dati associata a un oggetto che offre 
+meccanismi di sincronizzazione per il controllo dell'accesso concorrente ai 
+metodi o alle sezioni di codice critico. 
